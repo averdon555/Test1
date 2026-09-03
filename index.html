@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Un jeu Snake coloré, jouable directement dans votre navigateur." />
+    <title>Snake — Neon Garden</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">ARCADE DE POCHE · 01</p>
+        <h1>SNAKE<span>!</span></h1>
+        <p class="intro">Attrapez les lucioles, grandissez sans vous mordre la queue et visez le meilleur score.</p>
+      </header>
+
+      <section class="game-layout" aria-label="Jeu Snake">
+        <div class="game-card">
+          <div class="scoreboard">
+            <div><span>SCORE</span><strong id="score">000</strong></div>
+            <div><span>RECORD</span><strong id="high-score">000</strong></div>
+          </div>
+
+          <div class="board-wrap">
+            <canvas id="game" width="600" height="600" aria-label="Plateau du jeu Snake"></canvas>
+            <div class="game-message" id="game-message" aria-live="polite">
+              <p class="message-kicker">PRÊT ?</p>
+              <h2>À vos pommes.</h2>
+              <p>Utilisez les flèches ou ZQSD pour démarrer.</p>
+              <button type="button" id="start-button">Jouer</button>
+            </div>
+          </div>
+
+          <div class="controls" aria-label="Commandes tactiles">
+            <button type="button" class="control up" data-direction="up" aria-label="Haut">↑</button>
+            <button type="button" class="control left" data-direction="left" aria-label="Gauche">←</button>
+            <button type="button" class="control down" data-direction="down" aria-label="Bas">↓</button>
+            <button type="button" class="control right" data-direction="right" aria-label="Droite">→</button>
+          </div>
+        </div>
+
+        <aside class="side-note">
+          <div class="sticker">+10<br /><small>PAR LUCIOLE</small></div>
+          <div>
+            <p class="eyebrow">MODE D’EMPLOI</p>
+            <h2>Un petit détour<br />dans le jardin.</h2>
+            <ol>
+              <li>Dirigez le serpent avec le clavier.</li>
+              <li>Chaque luciole vaut 10 points.</li>
+              <li>La vitesse augmente à chaque capture.</li>
+            </ol>
+          </div>
+          <p class="tip">Astuce : vous pouvez aussi jouer avec les boutons sur mobile.</p>
+        </aside>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

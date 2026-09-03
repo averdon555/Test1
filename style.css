@@ -1,0 +1,32 @@
+:root { --ink:#1b2430; --cream:#f7f1e5; --lime:#b8f04d; --pink:#ff6c8c; --blue:#7dc8f6; }
+* { box-sizing:border-box; }
+body { margin:0; min-height:100vh; color:var(--ink); background:radial-gradient(circle at 12% 8%, #fff9e7 0 15%, transparent 15.2%), var(--cream); font-family:"DM Mono", monospace; }
+body::before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.24; background-image:linear-gradient(#ccd4c1 1px, transparent 1px),linear-gradient(90deg,#ccd4c1 1px, transparent 1px); background-size:28px 28px; }
+.page-shell { position:relative; width:min(1120px, calc(100% - 40px)); margin:auto; padding:54px 0 48px; }
+.hero { display:grid; grid-template-columns:1fr auto; column-gap:45px; align-items:end; margin-bottom:35px; }
+.eyebrow { margin:0 0 9px; font-size:.7rem; font-weight:500; letter-spacing:.13em; }
+h1,h2 { margin:0; font-family:Syne,sans-serif; line-height:.9; }
+h1 { font-size:clamp(4rem, 13vw, 8.5rem); letter-spacing:-.08em; }
+h1 span { color:var(--pink); }
+.intro { max-width:300px; margin:0 0 7px; font-size:.79rem; line-height:1.6; }
+.game-layout { display:grid; grid-template-columns:minmax(0, 640px) 1fr; gap:42px; align-items:center; }
+.game-card { padding:18px; background:var(--ink); border:4px solid var(--ink); box-shadow:10px 10px 0 var(--pink); }
+.scoreboard { display:flex; justify-content:space-between; padding:0 4px 14px; color:var(--cream); }
+.scoreboard div:last-child { text-align:right; }
+.scoreboard span { display:block; font-size:.62rem; letter-spacing:.12em; color:#b7c4bd; }
+.scoreboard strong { font-size:1.45rem; font-weight:500; }
+.board-wrap { position:relative; aspect-ratio:1; overflow:hidden; background:#b8e5b8; }
+canvas { display:block; width:100%; height:100%; image-rendering:pixelated; }
+.game-message { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:25px; text-align:center; color:var(--ink); background:rgba(247,241,229,.91); transition:opacity .2s, visibility .2s; }
+.game-message.hidden { opacity:0; visibility:hidden; pointer-events:none; }
+.message-kicker { margin:0 0 8px; color:var(--pink); font-size:.72rem; font-weight:bold; letter-spacing:.16em; }
+.game-message h2 { font-size:clamp(2.1rem, 6vw, 3.8rem); }
+.game-message p:not(.message-kicker) { max-width:280px; font-size:.75rem; line-height:1.55; }
+button { font:inherit; cursor:pointer; }
+#start-button { margin-top:8px; padding:12px 27px; border:2px solid var(--ink); color:var(--ink); background:var(--lime); box-shadow:4px 4px 0 var(--ink); font-weight:bold; text-transform:uppercase; letter-spacing:.08em; }
+#start-button:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink); }
+.controls { display:none; grid-template:repeat(2, 42px)/repeat(3,42px); justify-content:center; gap:5px; padding-top:16px; }
+.control { border:1px solid #55606c; color:var(--cream); background:#2d3946; font-size:1.25rem; }.up { grid-column:2; }.left { grid-column:1; }.down { grid-column:2; }.right { grid-column:3; grid-row:2; }
+.side-note { display:grid; gap:42px; }.side-note h2 { font-size:clamp(1.8rem, 4vw, 3rem); letter-spacing:-.06em; }.side-note ol { margin:24px 0 0; padding-left:22px; font-size:.76rem; line-height:1.8; }.sticker { justify-self:start; padding:15px 12px; rotate:8deg; color:var(--ink); background:var(--lime); border:2px solid var(--ink); box-shadow:4px 4px 0 var(--ink); font:700 1.45rem/1 Syne,sans-serif; text-align:center; }.sticker small { font:500 .5rem "DM Mono",monospace; }.tip { padding-top:17px; border-top:2px solid var(--ink); font-size:.7rem; line-height:1.55; }
+@media (max-width:760px) { .page-shell { width:min(100% - 28px, 540px); padding-top:32px; }.hero { display:block; }.intro { margin-top:20px; }.game-layout { grid-template-columns:1fr; gap:34px; }.side-note { grid-template-columns:auto 1fr; gap:20px; align-items:start; }.tip { grid-column:1/-1; }.controls { display:grid; } }
+@media (max-width:390px) { .game-card { padding:11px; }.side-note { display:block; }.sticker { margin-bottom:28px; } }
